@@ -19,7 +19,6 @@ st.markdown("""
 def render_mahmood():
     st.subheader("Mahmood Muwafi — Portfolio")
     
-    # Updated to read your newly uploaded Resume2026.pdf asset
     with open("Resume2026.pdf", "rb") as pdf_file:
         st.download_button(
             label="📥 Download Mahmood's CV (PDF)",
@@ -29,10 +28,11 @@ def render_mahmood():
             use_container_width=True
         )
     
-    # Read and embed your complete layout frame
     with open("index.html", "r", encoding="utf-8") as f:
         html_content = f.read()
-    st.components.v1.html(html_content, height=1500, scrolling=True)
+    
+    # FIX: Boost height to 1800 so the entire site renders without an inner scroll track
+    st.components.v1.html(html_content, height=1800, scrolling=False)
 
 # ─────────────────────────────────────────
 # PAGE 2: AFZAL M. HARISH
@@ -40,8 +40,7 @@ def render_mahmood():
 def render_afzal():
     st.subheader("Afzal M. Harish — Portfolio")
     
-    # Native download button mapped directly to your friend's PDF file[cite: 4]
-    with open("Job Resume-1.pdf", "rb") as pdf_file: #[cite: 4]
+    with open("Job Resume-1.pdf", "rb") as pdf_file:
         st.download_button(
             label="📥 Download Afzal's CV (PDF)",
             data=pdf_file.read(),
@@ -50,10 +49,11 @@ def render_afzal():
             use_container_width=True
         )
     
-    # Read and embed his complete cyberpunk interface layout frame[cite: 4]
-    with open("index_af.html", "r", encoding="utf-8") as f: #[cite: 4]
+    with open("index_af.html", "r", encoding="utf-8") as f:
         html_content = f.read()
-    st.components.v1.html(html_content, height=1500, scrolling=True)
+        
+    # FIX: Boost height here as well to cleanly fit his layout matrix
+    st.components.v1.html(html_content, height=1800, scrolling=False)
 
 # ─────────────────────────────────────────
 # THE MULTIPAGE ROUTING ENGINE
