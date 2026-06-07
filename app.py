@@ -80,12 +80,16 @@ def render_afzal():
 # ─────────────────────────────────────────
 # THE MULTIPAGE ROUTING ENGINE
 # ─────────────────────────────────────────
-page_mahmood = st.Page(render_mahmood, title="Mahmood Muwafi", url_path="mahmood")
+# ─────────────────────────────────────────
+# THE MULTIPAGE ROUTING ENGINE
+# ─────────────────────────────────────────
+page_mahmood = st.Page(render_mahmood, title="Mahmood Muwafi", url_path="mahmood", default=True)
 page_afzal = st.Page(render_afzal, title="Afzal M. Harish", url_path="friend")
 
-pg = st.navigation([page_mahmood, page_afzal], position="hidden")
+# Explicitly declare navigation matching your page profiles
+pg = st.navigation({
+    "Portfolios": [page_mahmood, page_afzal]
+}, position="hidden")
 
-if "page" not in st.query_params:
-    st.query_params["page"] = "mahmood"
-
+# Execute navigation layout rendering directly
 pg.run()
