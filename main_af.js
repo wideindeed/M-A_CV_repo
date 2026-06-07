@@ -6,29 +6,7 @@
 (function () {
   'use strict';
 
-  /* ── CV DOWNLOAD HANDLER ── */
-  const cvBtn = document.getElementById('cv-download');
-  if (cvBtn) {
-    cvBtn.addEventListener('click', function (e) {
-      e.preventDefault();
 
-      // Flash feedback
-      const orig = cvBtn.innerHTML;
-      cvBtn.innerHTML = '<span>✓ READY</span>';
-      cvBtn.style.background = 'var(--cyan)';
-      cvBtn.style.color = 'var(--bg)';
-
-      setTimeout(() => {
-        cvBtn.innerHTML = orig;
-        cvBtn.style.background = '';
-        cvBtn.style.color = '';
-      }, 1800);
-
-      // In production: replace with actual PDF path
-      // window.open('afzal_harish_cv.pdf', '_blank');
-      alert('CV download would trigger here in production.\nReplace with your actual PDF link in main_af.js.');
-    });
-  }
 
   /* ── ENTRY ANIMATION (class-based, no layout shift) ── */
   function revealOnLoad () {
