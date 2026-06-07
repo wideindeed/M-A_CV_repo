@@ -50,7 +50,7 @@ def render_mahmood():
     html = html.replace("</body>", f"<script>{js}</script></body>")
     
     # 3. Render the fully combined site
-    st.components.v1.html(html, scrolling=True)
+    st.components.v1.html(html, height=2500, scrolling=True)
 
 # ─────────────────────────────────────────
 # PAGE 2: AFZAL M. HARISH
@@ -75,7 +75,7 @@ def render_afzal():
     html = html.replace("</body>", f"<script>{js}</script></body>")
         
     # 3. Render the fully combined site
-    st.components.v1.html(html, scrolling=True)
+    st.components.v1.html(html, height=2500, scrolling=True)
 
 # ─────────────────────────────────────────
 # THE MULTIPAGE ROUTING ENGINE
