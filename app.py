@@ -80,16 +80,19 @@ def render_afzal():
 # ─────────────────────────────────────────
 # THE MULTIPAGE ROUTING ENGINE
 # ─────────────────────────────────────────
-# ─────────────────────────────────────────
-# THE MULTIPAGE ROUTING ENGINE
-# ─────────────────────────────────────────
-page_mahmood = st.Page(render_mahmood, title="Mahmood Muwafi", url_path="mahmood", default=True)
+
+# 1. Define the pages clearly
+# Note: We remove the url_path from your default page so it cleanly matches the root domain
+page_mahmood = st.Page(render_mahmood, title="Mahmood Muwafi", default=True)
 page_afzal = st.Page(render_afzal, title="Afzal M. Harish", url_path="friend")
 
-# Explicitly declare navigation matching your page profiles
-pg = st.navigation({
-    "Portfolios": [page_mahmood, page_afzal]
-}, position="hidden")
+# 2. Initialize the navigation control structure
+pg = st.navigation([page_mahmood, page_afzal], position="hidden")
 
-# Execute navigation layout rendering directly
+# 3. Check if someone is specifically trying to look for your old path name
+if "page" in st.query_params and st.query_params["page"] == "mahmood":
+    # Clear the query param and let the default dashboard route take over natively
+    st.query_params.clear()
+
+# 4. Run the navigation layout engine
 pg.run()
